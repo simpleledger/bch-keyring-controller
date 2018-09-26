@@ -7,14 +7,17 @@ const ObservableStore = require('obs-store')
 const filter = require('promise-filter')
 const encryptor = require('browser-passworder')
 const sigUtil = require('eth-sig-util')
-const normalizeAddress = sigUtil.normalize
 // Keyrings:
-const SimpleKeyring = require('eth-simple-keyring')
+//const SimpleKeyring = require('eth-simple-keyring')
 const HdKeyring = require('eth-hd-keyring')
 const keyringTypes = [
-  SimpleKeyring,
+  //SimpleKeyring,
   HdKeyring,
 ]
+
+const normalizeAddress = function(address) {
+  return address
+}
 
 class KeyringController extends EventEmitter {
 
@@ -205,7 +208,7 @@ class KeyringController extends EventEmitter {
     .then((accounts) => {
       switch (type) {
         case 'Simple Key Pair':
-          const isNotIncluded = !accounts.find((key) => key === newAccount[0] || key === ethUtil.stripHexPrefix(newAccount[0]))
+          const isNotIncluded = !accounts.find((key) => key === newAccount[0])
           return (isNotIncluded) ? Promise.resolve(newAccount) : Promise.reject(new Error('The account you\'re are trying to import is a duplicate'))
         default:
           return Promise.resolve(newAccount)
