@@ -257,6 +257,26 @@ class KeyringController extends EventEmitter {
     }
   }
 
+  // Export KeyPair
+  // @string address
+  //
+  // returns Promise( @ECPair keyPair )
+  //
+  // Requests the keyPair from the keyring controlling
+  // the specified address.
+  //
+  // Returns a Promise that may resolve with the key pair.
+  exportKeyPair (address) {
+    try {
+      return this.getKeyringForAccount(address)
+      .then((keyring) => {
+        return keyring.exportKeyPair(normalizeAddress(address))
+      })
+    } catch (e) {
+      return Promise.reject(e)
+    }
+  }
+
   // Remove Account
   // @string address
   //
