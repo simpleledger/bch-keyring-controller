@@ -1,14 +1,14 @@
 {
-  "name": "eth-keyring-controller",
-  "version": "4.0.0",
-  "description": "A module for managing various keyrings of Ethereum accounts, encrypting them, and using them.",
+  "name": "bch-keyring-controller",
+  "version": "0.0.1",
+  "description": "A module for managing various keyrings of Bitcoin Cash accounts, encrypting them, and using them.",
   "main": "index.js",
   "scripts": {
     "test": "mocha --require test/helper.js test/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/MetaMask/KeyringController.git"
+    "url": "git+ssh://git@github.com/simpleledger/bch-keyring-controller.git"
   },
   "keywords": [
     "ethereum",
@@ -19,9 +19,9 @@
   "author": "Dan Finlay <dan@danfinlay.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MetaMask/KeyringController/issues"
+    "url": "https://github.com/simpleledger/bch-keyring-controller/issues"
   },
-  "homepage": "https://github.com/MetaMask/KeyringController#readme",
+  "homepage": "https://github.com/simpleledger/bch-keyring-controller#readme",
   "devDependencies": {
     "clone": "^2.1.1",
     "eslint-plugin-mocha": "^4.11.0",
