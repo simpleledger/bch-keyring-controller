@@ -1,6 +1,6 @@
 {
   "name": "bch-keyring-controller",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A module for managing various keyrings of Bitcoin Cash accounts, encrypting them, and using them.",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
     "accounts",
     "keys"
   ],
-  "author": "Dan Finlay <dan@danfinlay.com>",
+  "author": "SpendBCH",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/simpleledger/bch-keyring-controller/issues"
@@ -35,10 +35,10 @@
     "sinon": "^3.3.0"
   },
   "dependencies": {
+    "bch-hd-keyring": "^0.1.1",
     "bip39": "^2.4.0",
     "bluebird": "^3.5.0",
     "browser-passworder": "^2.0.3",
-    "eth-hd-keyring": "^2.0.0",
     "eth-sig-util": "^1.4.0",
     "eth-simple-keyring": "^2.0.0",
     "ethereumjs-util": "^5.1.2",
