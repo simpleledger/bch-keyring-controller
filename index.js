@@ -9,7 +9,7 @@ const encryptor = require('browser-passworder')
 const sigUtil = require('eth-sig-util')
 // Keyrings:
 //const SimpleKeyring = require('eth-simple-keyring')
-const HdKeyring = require('eth-hd-keyring')
+const HdKeyring = require('bch-hd-keyring')
 const keyringTypes = [
   //SimpleKeyring,
   HdKeyring,
