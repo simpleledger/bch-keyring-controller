@@ -11,8 +11,10 @@
     "url": "git+ssh://git@github.com/simpleledger/bch-keyring-controller.git"
   },
   "keywords": [
-    "ethereum",
-    "metamask",
+    "bitcoincash",
+    "badger",
+    "slp",
+    "wormhole",
     "accounts",
     "keys"
   ],
