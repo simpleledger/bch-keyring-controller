@@ -6,12 +6,10 @@ const EventEmitter = require('events').EventEmitter
 const ObservableStore = require('obs-store')
 const filter = require('promise-filter')
 const encryptor = require('browser-passworder')
-const sigUtil = require('eth-sig-util')
+
 // Keyrings:
-//const SimpleKeyring = require('eth-simple-keyring')
 const HdKeyring = require('bch-hd-keyring')
 const keyringTypes = [
-  //SimpleKeyring,
   HdKeyring,
 ]
 
