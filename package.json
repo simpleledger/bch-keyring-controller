@@ -1,6 +1,6 @@
 {
   "name": "bch-keyring-controller",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A module for managing various keyrings of Bitcoin Cash accounts, encrypting them, and using them.",
   "main": "index.js",
   "scripts": {
@@ -35,12 +35,10 @@
     "sinon": "^3.3.0"
   },
   "dependencies": {
-    "bch-hd-keyring": "^0.3.1",
+    "bch-hd-keyring": "^0.3.2",
     "bip39": "^2.4.0",
     "bluebird": "^3.5.2",
     "browser-passworder": "^2.0.3",
-    "eth-sig-util": "^1.4.0",
-    "eth-simple-keyring": "^2.0.0",
     "ethereumjs-util": "^5.2.0",
     "loglevel": "^1.5.0",
     "obs-store": "^2.4.1",

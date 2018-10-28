@@ -1,7 +1,4 @@
-const ethUtil = require('ethereumjs-util')
-const normalize = require('eth-sig-util').normalize
 const MetamaskConfig = require('./config.js')
-
 
 const MAINNET_RPC = MetamaskConfig.network.mainnet
 const ROPSTEN_RPC = MetamaskConfig.network.ropsten
@@ -76,7 +73,7 @@ ConfigManager.prototype.getSelectedAccount = function () {
 
 ConfigManager.prototype.setSelectedAccount = function (address) {
   var config = this.getConfig()
-  config.selectedAccount = ethUtil.addHexPrefix(address)
+  config.selectedAccount = address
   this.setConfig(config)
 }
 
