@@ -508,6 +508,22 @@ class KeyringController extends EventEmitter {
     return addrs.map(normalizeAddress)
   }
 
+  // Get SLP Accounts
+  // returns Promise( @Array[ @string accounts ] )
+  //
+  // Returns the public addresses of all current accounts
+  // managed by all currently unlocked keyrings.
+  async getSlpAccounts () {
+    const keyrings = this.keyrings || []
+    const addrs = await Promise.all(keyrings.map(kr => kr.getSlpAccounts()))
+    .then((keyringArrays) => {
+      return keyringArrays.reduce((res, arr) => {
+        return res.concat(arr)
+      }, [])
+    })
+    return addrs.map(normalizeAddress)
+  }
+
   // Get Keyring For Account
   // @string address
   //
@@ -522,7 +538,7 @@ class KeyringController extends EventEmitter {
     return Promise.all(this.keyrings.map((keyring) => {
       return Promise.all([
         keyring,
-        keyring.getAccounts(),
+        keyring.getAllAccounts(),
       ])
     }))
     .then(filter((candidate) => {
@@ -546,6 +562,22 @@ class KeyringController extends EventEmitter {
   // Is used for adding the current keyrings to the state object.
   displayForKeyring (keyring) {
     return keyring.getAccounts()
+    .then((accounts) => {
+      return {
+        type: keyring.type,
+        accounts: accounts.map(normalizeAddress),
+      }
+    })
+  }
+
+  // Display SLP For Keyring
+  // @Keyring keyring
+  //
+  // returns Promise( @Object { type:String, accounts:Array } )
+  //
+  // Is used for adding the current keyrings to the state object.
+  displaySlpForKeyring (keyring) {
+    return keyring.getSlpAccounts()
     .then((accounts) => {
       return {
         type: keyring.type,
