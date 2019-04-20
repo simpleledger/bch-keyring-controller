@@ -463,7 +463,7 @@ class KeyringController extends EventEmitter {
     const Keyring = this.getKeyringClassForType(type)
 
     // Reset accounts to one on migration to slp split paths
-    if (!data.slpHdPath) {
+    if (data && !data.slpHdPath) {
       data.numberOfAccounts = 1
     }
 
