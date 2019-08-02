@@ -448,6 +448,7 @@ class KeyringController extends EventEmitter {
       await Promise.all(vault.map(this.restoreKeyring.bind(this)))
       return this.keyrings
     } catch (error) {
+      throw new Error('Incorrect password')
     }
   }
 
