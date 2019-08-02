@@ -440,12 +440,16 @@ class KeyringController extends EventEmitter {
       throw new Error('Cannot unlock without a previous vault.')
     }
 
-    await this.clearKeyrings()
-    const vault = await this.encryptor.decrypt(password, encryptedVault)
-    this.password = password
-    this.memStore.updateState({ isUnlocked: true })
-    await Promise.all(vault.map(this.restoreKeyring.bind(this)))
-    return this.keyrings
+    try {
+      const vault = await this.encryptor.decrypt(password, encryptedVault)
+      await this.clearKeyrings()
+      this.password = password
+      this.memStore.updateState({ isUnlocked: true })
+      await Promise.all(vault.map(this.restoreKeyring.bind(this)))
+      return this.keyrings
+    } catch (error) {
+      throw new Error('Incorrect password')
+    }
   }
 
   // Restore Keyring
